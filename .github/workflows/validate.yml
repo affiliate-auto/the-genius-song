@@ -1,0 +1,31 @@
+name: Pre-Deploy Validation
+on: [push]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Affiliate link or /go path present
+        run: grep -qE "hop\.clickbank\.net|digistore24\.com|href="/go"" index.html || exit 1
+      - name: FAQPage schema present
+        run: grep -q "FAQPage" index.html || exit 1
+      - name: Speakable schema present
+        run: grep -q "SpeakableSpecification" index.html || exit 1
+      - name: HowTo schema present
+        run: grep -q '"HowTo"' index.html || exit 1
+      - name: Bing verify tag present
+        run: grep -q "msvalidate.01" index.html || exit 1
+      - name: Geo tags present
+        run: grep -q "geo.region" index.html || exit 1
+      - name: Canonical present
+        run: grep -q "canonical" index.html || exit 1
+      - name: GEO direct answer box present
+        run: grep -q "geo-direct-answer" index.html || exit 1
+      - name: llms.txt present
+        run: test -f llms.txt
+      - name: robots.txt present
+        run: test -f robots.txt
+      - name: sitemap.xml present
+        run: test -f sitemap.xml
+      - name: Pages Function present
+        run: test -f functions/go.js

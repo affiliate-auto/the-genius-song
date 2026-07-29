@@ -1,0 +1,12 @@
+/*
+  Cache-Control: public, max-age=3600
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Robots-Tag: index, follow
+
+/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
+
+/og-image.png
+  Cache-Control: public, max-age=86400
