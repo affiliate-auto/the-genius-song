@@ -8,7 +8,7 @@
  *
  * Affiliate URL is read from:
  *   1. KV binding AFFILIATE_CONFIG (key: "affiliate_url") — allows zero-downtime swaps
- *   2. Fallback: hardcoded https://hop.clickbank.net/?affiliate=clbaf01&vendor=geniussong (set by pipeline at build time)
+ *   2. Fallback: hardcoded https://7b86b9sxbbbz7n70kijky7zxet.hop.clickbank.net/ (set by pipeline at build time)
  *
  * Click is logged non-blocking to D1 (binding: DB).
  * Country is extracted from Cloudflare's cf-ipcountry header (automatic, no extra config).
@@ -19,7 +19,7 @@
  *   Variable:      SITE_ID (integer, matches sites.id in D1)
  */
 
-const FALLBACK_URL = "https://hop.clickbank.net/?affiliate=clbaf01&vendor=geniussong";
+const FALLBACK_URL = "https://7b86b9sxbbbz7n70kijky7zxet.hop.clickbank.net/";
 
 export async function onRequest(context) {
   const { request, env } = context;
